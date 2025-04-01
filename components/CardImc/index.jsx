@@ -13,6 +13,10 @@ export default function CardImc(){
             toast.error("Preencha todos os campos");
             return;
         }
+
+        const calculo = peso / (altura * altura)
+
+        setResultado(calculo)
     }
 
     return (
@@ -40,8 +44,18 @@ export default function CardImc(){
                     onClick={calcularImc}
                     className="w-[90%] h-[40px] rounded-md bg-[#FF725E] mt-2 font-bold">Calculadora</button>
                 </div>
-                    
             </div>
+            {resultado == 0 && (
+                <div className="w-full flex flex-col">
+                    <div className="w-full h-[1px] bg-gray-400"></div>
+                    <div className="flex w-full">
+                        <div className="w-[40%] flex flex-col">
+                        <div className="w-[60%] flex"></div>
+                        </div>
+                        <div className="w-full h-[1px] bg-gray-400"></div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
